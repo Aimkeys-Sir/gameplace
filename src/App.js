@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Card from './components/Card';
+import { useEffect, useState } from 'react';
+import Logo from './components/Logo';
+import Sidebar from './components/Sidebar';
 
 function App() {
+  const [games, setGames] = useState([])
+  useEffect((() => {
+    try {
+      fetch('http://localhost:9292/games')
+        .then(r => r.json())
+        .then(setGames)
+    } catch { }
+
+  }), [])
+  console.log(games)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='side'>
+        <Sidebar/>
+      </div>
+      <div className='cards'>
+        <Logo/>
+        {games.map((game, index) => {
+          return (<Card game={game} key={index} image={'/pictures/dragon.jpg'} />)
+        })}
+      </div>
+
+
     </div>
   );
 }

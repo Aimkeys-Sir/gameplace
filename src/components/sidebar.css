@@ -1,0 +1,38 @@
+.sidebar{
+    color: white;
+    /* background: rgba(0, 0, 0, 0.425); */
+    margin-left:-20px;
+    display: flex;
+    padding: 5px;
+    /* border-radius:0 60px 60px 0 ; */
+
+}
+.sidebar button{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: 'changa';
+    font-size: 16px;
+    font-weight: 600;
+}
+.sidebar button img{
+    filter: invert();
+    height: 30px;
+}
+.hide{
+    display: flex;
+    flex-direction: column;
+}
+.profile{
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+    top: 26px;
+}
+#profile-hud{
+    height: 140px;
+}

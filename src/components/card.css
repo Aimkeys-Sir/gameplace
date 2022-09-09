@@ -1,0 +1,91 @@
+.card{
+    background-color: #011533;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    text-align: left;
+    width: 45%;
+    margin: 10px;
+    
+}
+.images{
+    position: relative;
+}
+.hud{
+    height: 300px;
+}
+.picture{
+    height: 200px;
+    position: absolute;
+    border-radius: 50%;
+    right: 57px;
+    top: 61px;
+}
+.icons{
+    height: 35px;
+    filter: invert();
+    margin: 5px;
+}
+.line{
+    display: flex;
+    align-items: center;
+}
+.linee{
+    width: 60px;
+    background: #0453AF;
+    height: 2px;
+}
+.dot{
+    height: 6px;
+    width: 6px;
+    border-radius:50%;
+    background-color: #0453AF;
+}
+.the-icon{
+    position: relative;
+}
+.icons-div{
+    position: relative;
+    margin-left: 25px;
+}
+.wrappers{
+    background: #0453AF;
+    margin: 5px;
+    height: 55px;
+    width: 55px;
+    position: absolute;
+    top: 8.3px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 8px;
+    border-radius: 50px;
+}
+.hud-small{
+    height: 80px;
+}
+.line-dot{
+align-items: center;
+display: flex;
+position: absolute;
+left: 2px;
+top: 35px;
+}
+.dot2{
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background-color: #0453AF;
+}
+.line2{
+width: 20px;
+height: 2px;
+background-color: #0453AF;
+}
+.last{
+    left:90px;
+    top:62px;
+}

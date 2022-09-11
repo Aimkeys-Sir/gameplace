@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa&display=swap');
 
 
-.profile-hud{
+.logo img{
     height: 200px;
 }
 .logo{
@@ -16,11 +16,11 @@ font-family: 'changa';
 .logo h2{
     margin: -20px;
     font-size: 36px;
-    letter-spacing: 8px;
+    letter-spacing: 12px;
 }
 
 .logo h3{
     margin: -10px;
     font-size: 24px;
-    letter-spacing: 5px;
+    letter-spacing: 7px;
 }

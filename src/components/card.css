@@ -23,6 +23,7 @@
     border-radius: 50%;
     right: 57px;
     top: 61px;
+    cursor: pointer;
 }
 .icons{
     height: 35px;

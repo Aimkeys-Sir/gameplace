@@ -1,7 +1,7 @@
 .sidebar{
     color: white;
     /* background: rgba(0, 0, 0, 0.425); */
-    margin-left:-20px;
+    margin-left:20px;
     display: flex;
     padding: 5px;
     /* border-radius:0 60px 60px 0 ; */
@@ -30,7 +30,7 @@
     height: 100px;
     border-radius: 50%;
     position: absolute;
-    left: 10px;
+    left: 50px;
     top: 26px;
 }
 #profile-hud{

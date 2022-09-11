@@ -7,7 +7,6 @@
   font-family: 'Roboto',sans-serif;
   min-height: 100vh;
   color:  white;
-  padding: 20px;
   position: relative;
 }
 
@@ -19,4 +18,59 @@
   position: absolute;
   min-height: 100vh;
   align-items: center;
+}
+
+/* login */
+.login{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'changa';
+}
+.login form{
+display: flex;
+flex-direction: column;
+text-align: left;
+}
+.login input{
+background: none;
+margin:5px ;
+height: 30px;
+width: 300px;
+color: white;
+outline: none;
+font-size: 16px;
+padding: 2px 5px;
+}
+.login button{
+  height: 35px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: #022e70;
+  color: white;
+  font-family: 'changa';
+  width: 110px;
+  font-size:18px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  flex-wrap: nowrap;
+  margin: 15px 5px 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+#sign-up-logo{
+  margin-top: -30px;
+}
+.error{
+  animation: error_anim 1s linear 3;
+}
+@keyframes error_anim {
+  0%{
+    color: white;
+  }
+  50%{
+    color: red;
+  }
 }

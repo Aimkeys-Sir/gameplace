@@ -9,7 +9,7 @@ export default function Login({getUser}) {
     const [user,setUser]=useState({})
     const [wrongPass,setWrongPass]=useState(false)
     const [emptyError,setEmptyError]=useState('')
-    const [signUpDetails,setSignUpDetails]=useState({first_name:"",last_name:"",email:"",password:"",birthday:""})
+    const [signUpDetails,setSignUpDetails]=useState({first_name:"",last_name:"",email:"",password:"",birthday:"",callsign:""})
 
     function handleLogin(e){
         setLoginDetails(details=>({...details,[e.target.name]:e.target.value}))
@@ -79,6 +79,7 @@ export default function Login({getUser}) {
             {signUp?<div>
                 <form onSubmit={handleSignUpSubmit}>
                     <input onChange={handleSignUp} value={signUpDetails.first_name} name="first_name" type={"text"} placeholder="First name" />
+                    <input onChange={handleSignUp} value={signUpDetails.callsign} name="callsign" type={"text"} placeholder="Call sign" />
                     <input onChange={handleSignUp} value={signUpDetails.last_name} name="last_name" type="text" placeholder="Last name" />
                     <input onChange={handleSignUp} value={signUpDetails.email} name="email" type={'text'} placeholder="Email" />
                     <input onChange={handleSignUp} value={signUpDetails.password} name="password" type={'password'} placeholder='Enter password' />

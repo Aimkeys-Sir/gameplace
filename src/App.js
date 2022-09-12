@@ -7,6 +7,8 @@ import { Route, Switch, useHistory } from 'react-router';
 import Login from './components/Login';
 import {useLocalStorage} from "./components/hooks/CustomHooks"
 import GamePage from './components/GamePage';
+import Menu from './components/Menu';
+
 
 function App() {
   const [games, setGames] = useState([])
@@ -46,7 +48,9 @@ function App() {
         <Route path={'/home'}>
           <div className='side'>
             <Sidebar user={user}/>
+            <Menu user={user}/>
           </div>
+          
           <div className='cards'>
             <Logo />
             {games.map((game, index) => {

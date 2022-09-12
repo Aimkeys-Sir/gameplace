@@ -5,7 +5,6 @@ import Logo from './components/Logo';
 import Sidebar from './components/Sidebar';
 import { Route, Switch, useHistory } from 'react-router';
 import Login from './components/Login';
-import {useLocalStorage} from "./components/hooks/CustomHooks"
 import GamePage from './components/GamePage';
 import Menu from './components/Menu';
 
@@ -37,7 +36,7 @@ function App() {
   useEffect(()=>{
     history.push(`/${activeGame.id}`)
     console.log("This is inside",activeGame)
-  },[activeGame])
+  },[activeGame,history])
   console.log(games)
   return (
     <div className="App">
@@ -48,7 +47,7 @@ function App() {
         <Route path={'/home'}>
           <div className='side'>
             <Sidebar user={user}/>
-            <Menu user={user}/>
+            <Menu setUser={setUser} user={user}/>
           </div>
           
           <div className='cards'>
@@ -59,7 +58,7 @@ function App() {
           </div>
         </Route>
         <Route path={`/${activeGame.id}`}>
-          <GamePage player={user} game={activeGame}/>
+          <GamePage setUser={setUser} player={user} game={activeGame}/>
         </Route>
       </Switch>
     </div>

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Menu({ user }) {
+export default function Menu({ user,setUser }) {
     const [expand, setExpand] = useState(false)
     const [active, setActive] = useState("home")
 
@@ -25,7 +25,7 @@ export default function Menu({ user }) {
     function Tags() {
         return (
             <div>
-                <h3>{user.callsign[0].toUpperCase()}{user.callsign.slice(1)}</h3>
+                <h3>{user.callsign}</h3>
                 {stars.map((star, index) => <img className="icon" src="/icons/star.png" alt="star" key={index} />)}
                 <div>
                     <h3>Level: {user.level}</h3>
@@ -34,52 +34,78 @@ export default function Menu({ user }) {
         )
     }
     function Wallet() {
-        const [showform,setShowForm]=useState(false)
-        const [credits,setCredits]=useState(100)
-        function handleDeposit(){
+        const [showform, setShowForm] = useState(false)
+        const [credits, setCredits] = useState(100)
+        function handleDeposit() {
             setShowForm(true)
         }
-        function handleDepositsubmit(e){
+        function handleDepositsubmit(e) {
             e.preventDefault()
             alert(`Do you want to deposit Ksh. ${credits}`)
             //Add credits and patch
+            let options = {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    credits:parseInt(user.credits)+parseInt(credits)
+                })
+            }
+            fetch(`http://localhost:9292/credits/${user.id}`,options)
+            .then(r=>r.json())
+            .then(setUser)
+
         }
         return (
             <div>
                 <h3>Credits {user.credits}</h3>
-                <h3>1000</h3>
                 <button className="menu-b" onClick={handleDeposit}>deposit</button>
-                {showform?<form onSubmit={handleDepositsubmit} style={{position:"relative"}}>
-                    <input onChange={(e)=>setCredits(e.target.value)} style={{border:"none"}} type={"number"} value={credits} min={"0"}/>
-                    <button style={{background:"transparent",width:"30px",position:"absolute",left:"10px",top:"2px"}} className="menu-b"><img src="/icons/checkmark.png" /></button>
-                </form>:null}
+                {showform ? <form onSubmit={handleDepositsubmit} style={{ position: "relative" }}>
+                    <input onChange={(e) => setCredits(e.target.value)} style={{ border: "none" }} type={"number"} value={credits} min={"0"} />
+                    <button style={{ background: "transparent", width: "30px", position: "absolute", left: "10px", top: "2px" }} className="menu-b"><img alt="" src="/icons/checkmark.png" /></button>
+                </form> : null}
             </div>
         )
     }
 
-    function MyGames(){
+    function MyGames() {
         return (
             <div>
                 <h3>My Games</h3>
-                {user.games.map((game,index)=>{
+                {user.games.map((game, index) => {
                     return <h4>{game.name}</h4>
                 })}
             </div>
         )
     }
-    function Profile(){
-        const [newDetails,setNewDetails]=useState({first_name:user.first_name,last_name:user.last_name,callsign:user.callsign})
+    function Profile() {
+        const [newDetails, setNewDetails] = useState({ first_name: user.first_name, last_name: user.last_name, callsign: user.callsign })
 
-        function handleDetailsChange(e){
-            setNewDetails(details=>({...details,[e.target.name]:e.target.value}))
+        function handleDetailsChange(e) {
+            setNewDetails(details => ({ ...details, [e.target.name]: e.target.value }))
+        }
+        function handleDetailsSubmit(e) {
+            e.preventDefault()
+            let options = {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newDetails)
+            }
+            fetch(`http://localhost:9292/player/${user.id}`,options)
+            .then(r=>r.json())
+            .then(setUser)
         }
         return (
             <div >
                 <h3>Edit Profile</h3>
-                <form className="edits">
-                    <input onChange={handleDetailsChange}  name="callsign" value={newDetails.callsign}/>
-                    <input onChange={handleDetailsChange}  name="first_name" value={newDetails.first_name}/>
-                    <input onChange={handleDetailsChange} name="last_name" value={newDetails.last_name}/>
+                <form onSubmit={handleDetailsSubmit} className="edits">
+                    <input onChange={handleDetailsChange} name="callsign" value={newDetails.callsign}  placeholder="call sign"/>
+                    <input onChange={handleDetailsChange} name="first_name" value={newDetails.first_name} placeholder="first name"/>
+                    <input onChange={handleDetailsChange} name="last_name" value={newDetails.last_name} placeholder="last name"/>
+                    <button style={{ background: "transparent", width: "30px" }} className="menu-b"><img alt="" src="/icons/checkmark.png" /></button>
                 </form>
             </div>
         )
@@ -94,7 +120,7 @@ export default function Menu({ user }) {
             </div>
 
             {expand ? <div className="expand">
-                {active==="tags"?<Tags/>:active==="wallet"?<Wallet/>:active==="vr"?<MyGames/>:<Profile/>}
+                {active === "tags" ? <Tags /> : active === "wallet" ? <Wallet /> : active === "vr" ? <MyGames /> : <Profile />}
             </div> : null}
         </div>
     )

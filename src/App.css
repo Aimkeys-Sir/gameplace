@@ -110,13 +110,6 @@ display: flex;
 .menu-button{
   background:none ;
 }
-.menu-button img{
- 
-}
-.active-button img{
-  /* filter: invert(20%) sepia(97%) saturate(1719%)
-   hue-rotate(199deg) brightness(91%) contrast(99%); */
-}
 .active-button{
    background:#013B64;
 }

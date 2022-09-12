@@ -5,7 +5,7 @@ import Icon from './Icon'
 import { useEffect, useState } from 'react'
 
 
-export default function GamePage({ game, player }) {
+export default function GamePage({ game, player,setUser }) {
     const [activeShop, setActiveShop] = useState(game.gameshops[0])
     const [ticket, setTicket] = useState({ game_shop_id: activeShop.id, time: "", amount: 1, game_id: game.id, player_id: player.id })
 
@@ -19,7 +19,7 @@ export default function GamePage({ game, player }) {
             .then(setTicketsBought)
             .catch(console.log)
     }
-    useEffect(fetchTickets, [])
+    useEffect(fetchTickets, [player])
     console.log(ticketsBought);
     console.log(ticket);
     let image = game.name.toLowerCase().split(" ").join("_")
@@ -37,8 +37,12 @@ export default function GamePage({ game, player }) {
     }
     function onCheckOut(e) {
         e.preventDefault()
+        let price=Math.round(ticket.amount * game.price * 0.95 ** ticket.amount)
         if (!ticket.time) {
             setEmptyError(true)
+        }
+        else if(player.credits<price){
+            alert("Credits are not enough! Please deposit and try again")
         }
         else {
             console.log(ticket)
@@ -52,6 +56,18 @@ export default function GamePage({ game, player }) {
             }
             fetch('http://localhost:9292/ticket', options)
                 .then(() => fetchTickets())
+                let options2 = {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        credits:parseInt(player.credits)-price
+                    })
+                }
+                fetch(`http://localhost:9292/credits/${player.id}`,options2)
+                .then(r=>r.json())
+                .then(setUser)
             setTicket({ game_shop_id: activeShop.id, time: "", amount: 1, game_id: game.id, player_id: player.id })
         }
     }
@@ -61,7 +77,8 @@ export default function GamePage({ game, player }) {
             <div className='bar'>
                 <div style={{ position: "relative" }}>
                     <img className="profile-small" src="/pictures/profile.png" alt="prof pic" />
-                    <img id="profile-hud-small" src="/pictures/hud.png" />
+                    <img id="profile-hud-small" src="/pictures/hud.png" alt=''/>
+                    <h3 style={{margin:"0px"}}>{player.callsign || player.first_name} </h3>
                 </div>
                 <h2>{game.name}</h2>
                 <div>
@@ -91,6 +108,10 @@ export default function GamePage({ game, player }) {
                 <div>
                     <div style={{ backgroundImage: "url('/pictures/hud.png')" }} className="hud-div">
                         <img className="pictures" src={`/pictures/${image}.png`} alt="" />
+                    </div>
+                    <div className='price'>
+                        <h3>Credits:</h3>
+                        <h3 style={{color:"green"}}>{player.credits} </h3>
                     </div>
                     <div className='price'>
                         <h3>Play time:</h3>

@@ -22,7 +22,7 @@ export default function Menu({ user }) {
         stars.push(i)
         i++
     }
-    function Tags({ user }) {
+    function Tags() {
         return (
             <div>
                 <h3>{user.callsign[0].toUpperCase()}{user.callsign.slice(1)}</h3>
@@ -74,12 +74,12 @@ export default function Menu({ user }) {
             setNewDetails(details=>({...details,[e.target.name]:e.target.value}))
         }
         return (
-            <div>
+            <div >
                 <h3>Edit Profile</h3>
-                <form>
-                    <input name="callsign" value={newDetails.callsign}/>
-                    <input name="first_name" value={newDetails.first_name}/>
-                    <input name="last_name" value={newDetails.last_name}/>
+                <form className="edits">
+                    <input onChange={handleDetailsChange}  name="callsign" value={newDetails.callsign}/>
+                    <input onChange={handleDetailsChange}  name="first_name" value={newDetails.first_name}/>
+                    <input onChange={handleDetailsChange} name="last_name" value={newDetails.last_name}/>
                 </form>
             </div>
         )
@@ -94,7 +94,7 @@ export default function Menu({ user }) {
             </div>
 
             {expand ? <div className="expand">
-                <Profile/>
+                {active==="tags"?<Tags/>:active==="wallet"?<Wallet/>:active==="vr"?<MyGames/>:<Profile/>}
             </div> : null}
         </div>
     )

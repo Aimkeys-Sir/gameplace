@@ -30,24 +30,30 @@ The app was developed in three phases:
 
 ### Login/Sign up
 ![who](http://www.quickmeme.com/img/cf/cf9338e22168a5407dab89b4d0689780b786eb4d0af0fc7efdd6bb33d6d055ef.jpg)
+
 The first step is signing up. The app(I mean we) require your name,email, DOB and of course your badass callsign.
 Once, the data is saved to the database, the user is automatically logged on into the database.
+
 ![sign up](https://github.com/Aimkeys-Sir/gameplace/blob/main/Screenshot%20from%202022-09-13%2011-40-35.png)
+
 If you already signed up you can login using your email or callsign
+
 ![login](https://github.com/Aimkeys-Sir/gameplace/blob/main/Screenshot%20from%202022-09-13%2011-42-08.png)
 
 ### Dashboard/Catalog
 Once you are login on. Here you are;
 ![dashboard](https://github.com/Aimkeys-Sir/gameplace/blob/main/Screenshot%20from%202022-09-13%2011-52-05.png)
+
 The cards show all the games available and the technologies/props they employ.
 From the side menu, the user can:
--View their level/badges
--View credits and deposit cash.
--View the games their are subscribed to.
--Edit their profile.
+- View their level/badges
+- View credits and deposit cash.
+- View the games their are subscribed to.
+- Edit their profile.
 
 ### Game page
 From the game page, a user can access more info about a particular game. They can also buy tickets from the gameshops where the particular game is offered.
+
 ![game](https://github.com/Aimkeys-Sir/gameplace/blob/main/Screenshot%20from%202022-09-13%2012-22-20.png)
 
 

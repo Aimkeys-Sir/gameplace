@@ -37,8 +37,22 @@ If you already signed up you can login using your email or callsign
 ![login]()
 
 ### Dashboard/Catalog
-Once you are login on.
-![dash board](https://www.meme-arsenal.com/memes/66a605c78186cb024ba8c2b1cba2e0d1.jpg)
+Once you are login on. Here you are;
+![dashboard]()
+The cards show all the games available and the technologies/props they employ.
+From the side menu, the user can:
+-View their level/badges
+-View credits and deposit cash.
+-View the games their are subscribed to.
+-Edit their profile.
+
+### Game page
+From the game page, a user can access more info about a particular game. They can also buy tickets from the gameshops where the particular game is offered.
+![game]()
+
+## Knots and light bulbs
+
+
 
 
 

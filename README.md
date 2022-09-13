@@ -22,5 +22,23 @@ Gaming experiences brings meaning and color to life. It is is life in miniature,
 
 >If Music is a Place — then Jazz is the City, Folk is the Wilderness, Rock is the Road, Classical is a Temple. Go to all these places
 
+## Development
+The app was developed in three phases:
+1. Login/sign up
+2. Dashboard/catalog
+3. Game page
+
+### Login/Sign up
+![who](http://www.quickmeme.com/img/cf/cf9338e22168a5407dab89b4d0689780b786eb4d0af0fc7efdd6bb33d6d055ef.jpg)
+The first step is signing up. The app(I mean we) require your name,email, DOB and of course your badass callsign.
+Once, the data is saved to the database, the user is automatically logged on into the database.
+![sign up]()
+If you already signed up you can login using your email or callsign
+![login]()
+
+### Dashboard/Catalog
+Once you are login on.
+![dash board](https://www.meme-arsenal.com/memes/66a605c78186cb024ba8c2b1cba2e0d1.jpg)
+
 
 

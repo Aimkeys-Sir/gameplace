@@ -16,6 +16,7 @@ They are able to:
 -Subscribe to games.
 -Deposit game credits
 -Find games catalogs.
+[![video](https://github.com/Aimkeys-Sir/gameplace/blob/main/video.png)](https://www.youtube.com/watch?v=W5Q-8rPdtnA)
 
 ## Inspiration
 Gaming experiences brings meaning and color to life. It is is life in miniature, but here the sky is not the limit. Technologies such as Virtual Reality and Augment Reality has brought so much realism into gaming and opened other opportunities, even out of the gaming industry. Development of this app could help a gaming startup set up shop across the country and be able to manage them as well as their user. Digitalize money economy will also help the firm manage income and give discounts to their users.
@@ -32,7 +33,7 @@ The app was developed in three phases:
 ![who](http://www.quickmeme.com/img/cf/cf9338e22168a5407dab89b4d0689780b786eb4d0af0fc7efdd6bb33d6d055ef.jpg)
 
 The first step is signing up. The app(I mean we) require your name,email, DOB and of course your badass callsign.
-Once, the data is saved to the database, the user is automatically logged on into the database.
+Once, the data is saved to the database, the user is automatically logged on in.
 
 ![sign up](https://github.com/Aimkeys-Sir/gameplace/blob/main/Screenshot%20from%202022-09-13%2011-40-35.png)
 

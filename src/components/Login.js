@@ -11,11 +11,13 @@ export default function Login({ getUser }) {
     const [emptyError, setEmptyError] = useState('')
     const [signUpDetails, setSignUpDetails] = useState({ first_name: "", last_name: "", email: "", password: "", birthday: "", callsign: "" })
 
+    LookForUser(loginDetails.email)
     function handleLogin(e) {
         setLoginDetails(details => ({ ...details, [e.target.name]: e.target.value }))
     }
     function handleLoginSubmit(e) {
         e.preventDefault()
+        
         console.log(loginDetails.password, user.password)
         if (loginDetails.password === user.password) {
             console.log("success");
@@ -33,6 +35,7 @@ export default function Login({ getUser }) {
 
     function handleSignUpSubmit(e) {
         e.preventDefault()
+
         let empty = Object.keys(signUpDetails).find(key => signUpDetails[key] === "")
         console.log(empty)
         if (empty) {
@@ -57,8 +60,8 @@ export default function Login({ getUser }) {
 
     }
 
-    function LookForUser(e) {
-        fetch(`http://localhost:9292/players/${e.target.value}`)
+    function LookForUser(email) {
+        fetch(`http://localhost:9292/players/${email}`)
             .then(r => r.json())
             .then(setUser).catch()
     }
@@ -72,7 +75,7 @@ export default function Login({ getUser }) {
             {signUp ? null : <div>
                 <form onSubmit={handleLoginSubmit}>
                     <label>Email/username</label>
-                    <input onBlur={LookForUser} id="email" name="email" onChange={handleLogin} placeholder="Enter email or call sign" type={'text'} value={loginDetails.email} />
+                    <input onBlur={(e)=>LookForUser(e.target.value)} id="email" name="email" onChange={handleLogin} placeholder="Enter email or call sign" type={'text'} value={loginDetails.email} />
                     <label htmlFor="pass">Password</label>
                     <input onChange={handleLogin} name="password" type={"password"} id="pass" value={loginDetails.password} />
                     <button>Log in</button>

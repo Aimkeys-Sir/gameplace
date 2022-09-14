@@ -30,12 +30,10 @@ function App() {
   }
   function handleGameOnclick(game){
    setActiveGame(active=>({...active,...game}))
-   console.log("This is outside",activeGame);
   }
   
   useEffect(()=>{
     history.push(`/${activeGame.id}`)
-    console.log("This is inside",activeGame)
   },[activeGame,history])
   console.log(games)
   return (

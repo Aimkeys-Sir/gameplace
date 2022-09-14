@@ -20,8 +20,6 @@ export default function GamePage({ game, player,setUser }) {
             .catch(console.log)
     }
     useEffect(fetchTickets, [player])
-    console.log(ticketsBought);
-    console.log(ticket);
     let image = game.name.toLowerCase().split(" ").join("_")
 
     function handleInputChange(e) {
@@ -45,8 +43,7 @@ export default function GamePage({ game, player,setUser }) {
             alert("Credits are not enough! Please deposit and try again")
         }
         else {
-            console.log(ticket)
-            //post
+            //post here we area
             const options = {
                 method: "POST",
                 headers: {

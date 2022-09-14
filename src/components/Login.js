@@ -11,13 +11,13 @@ export default function Login({ getUser }) {
     const [emptyError, setEmptyError] = useState('')
     const [signUpDetails, setSignUpDetails] = useState({ first_name: "", last_name: "", email: "", password: "", birthday: "", callsign: "" })
 
-    LookForUser(loginDetails.email)
+
     function handleLogin(e) {
         setLoginDetails(details => ({ ...details, [e.target.name]: e.target.value }))
     }
     function handleLoginSubmit(e) {
         e.preventDefault()
-        
+        LookForUser(loginDetails.email)
         console.log(loginDetails.password, user.password)
         if (loginDetails.password === user.password) {
             console.log("success");
